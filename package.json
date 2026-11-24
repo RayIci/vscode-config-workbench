@@ -1,0 +1,202 @@
+{
+  "name": "neovim-workbench",
+  "displayName": "Neovim Workbench",
+  "description": "A configurable collection of Neovim-style workflows for Visual Studio Code.",
+  "version": "0.1.0",
+  "publisher": "local-tools",
+  "engines": {
+    "vscode": "^1.147.0"
+  },
+  "categories": [
+    "Other"
+  ],
+  "keywords": [
+    "neovim",
+    "vim",
+    "markdown"
+  ],
+  "main": "./src/extension.js",
+  "activationEvents": [
+    "onStartupFinished"
+  ],
+  "capabilities": {
+    "untrustedWorkspaces": {
+      "supported": true
+    },
+    "virtualWorkspaces": true
+  },
+  "scripts": {
+    "test": "node --test test/markdown/*.test.*"
+  },
+  "contributes": {
+    "markdown.markdownItPlugins": true,
+    "markdown.previewScripts": [
+      {
+        "path": "./src/markdown/preview/index.mjs",
+        "type": "module"
+      }
+    ],
+    "configuration": {
+      "title": "Neovim Workbench",
+      "properties": {
+        "neovimWorkbench.markdown.enabled": {
+          "type": "boolean",
+          "default": true,
+          "scope": "window",
+          "description": "Enable the Markdown module."
+        },
+        "neovimWorkbench.markdown.fileExtensions": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "pattern": "^\\.?[^/\\\\\\s]+$"
+          },
+          "uniqueItems": true,
+          "default": [
+            ".md",
+            ".markdown",
+            ".mkd",
+            ".mkdn",
+            ".mdwn",
+            ".mdown",
+            ".markdn",
+            ".mdtxt",
+            ".mdtext",
+            ".litcoffee",
+            ".ron",
+            ".ronn",
+            ".workbook",
+            ".copilotmd"
+          ],
+          "scope": "window",
+          "description": "Filename suffixes to handle in VS Code’s built-in Markdown preview. An empty list allows any document rendered by that preview."
+        },
+        "neovimWorkbench.markdown.preview.keyBindings": {
+          "type": "object",
+          "additionalProperties": false,
+          "scope": "window",
+          "markdownDescription": "Preview bindings by action. Use strings like `j`, `Ctrl+d`, or `g g`. Use an empty array to disable an action.",
+          "properties": {
+            "scrollDown": {
+              "type": "array",
+              "items": {
+                "type": "string",
+                "minLength": 1
+              },
+              "uniqueItems": true,
+              "description": "Scroll down."
+            },
+            "scrollUp": {
+              "type": "array",
+              "items": {
+                "type": "string",
+                "minLength": 1
+              },
+              "uniqueItems": true,
+              "description": "Scroll up."
+            },
+            "halfPageDown": {
+              "type": "array",
+              "items": {
+                "type": "string",
+                "minLength": 1
+              },
+              "uniqueItems": true,
+              "description": "Scroll down by a fraction of the viewport."
+            },
+            "halfPageUp": {
+              "type": "array",
+              "items": {
+                "type": "string",
+                "minLength": 1
+              },
+              "uniqueItems": true,
+              "description": "Scroll up by a fraction of the viewport."
+            },
+            "goToTop": {
+              "type": "array",
+              "items": {
+                "type": "string",
+                "minLength": 1
+              },
+              "uniqueItems": true,
+              "description": "Go to the start of the document."
+            },
+            "goToBottom": {
+              "type": "array",
+              "items": {
+                "type": "string",
+                "minLength": 1
+              },
+              "uniqueItems": true,
+              "description": "Go to the end of the document."
+            }
+          },
+          "default": {
+            "scrollDown": [
+              "j"
+            ],
+            "scrollUp": [
+              "k"
+            ],
+            "halfPageDown": [
+              "Ctrl+d"
+            ],
+            "halfPageUp": [
+              "Ctrl+u"
+            ],
+            "goToTop": [
+              "g g"
+            ],
+            "goToBottom": [
+              "Shift+g"
+            ]
+          }
+        },
+        "neovimWorkbench.markdown.preview.lineScrollPixels": {
+          "type": "integer",
+          "minimum": 1,
+          "default": 48,
+          "scope": "window",
+          "description": "Number of pixels moved by the scroll-up and scroll-down actions."
+        },
+        "neovimWorkbench.markdown.preview.halfPageFraction": {
+          "type": "number",
+          "minimum": 0.01,
+          "maximum": 1,
+          "default": 0.5,
+          "scope": "window",
+          "description": "Fraction of the visible height moved by the half-page actions."
+        },
+        "neovimWorkbench.markdown.preview.sequenceTimeoutMs": {
+          "type": "integer",
+          "minimum": 100,
+          "maximum": 5000,
+          "default": 1000,
+          "scope": "window",
+          "description": "Maximum gap in milliseconds between presses in a key sequence."
+        },
+        "neovimWorkbench.markdown.preview.forwardTabKeys": {
+          "type": "boolean",
+          "default": false,
+          "scope": "window",
+          "description": "Let VS Code handle Tab and Shift+Tab by suppressing the preview’s link-focus behavior. Set to false if you use Tab for link navigation or a preview motion."
+        },
+        "neovimWorkbench.markdown.preview.autoFocus": {
+          "type": "boolean",
+          "default": true,
+          "scope": "window",
+          "description": "Focus the rendered Markdown preview when its tab is selected."
+        },
+        "neovimWorkbench.markdown.preview.focusDelayMs": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 2000,
+          "default": 60,
+          "scope": "window",
+          "description": "Delay in milliseconds before the selected preview receives focus."
+        }
+      }
+    }
+  }
+}

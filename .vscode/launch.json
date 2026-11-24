@@ -1,0 +1,30 @@
+{
+  "version": "0.2.0",
+  "configurations": [
+    {
+      "name": "Run Extension",
+      "type": "extensionHost",
+      "request": "launch",
+      "args": [
+        "--extensionDevelopmentPath=${workspaceFolder}",
+        "--user-data-dir=${workspaceFolder}/.vscode-test/development-user",
+        "--extensions-dir=${workspaceFolder}/.vscode-test/development-extensions"
+      ]
+    },
+    {
+      "name": "Test Markdown Integration",
+      "type": "extensionHost",
+      "request": "launch",
+      "args": [
+        "${workspaceFolder}/test/integration/fixtures",
+        "--extensionDevelopmentPath=${workspaceFolder}",
+        "--extensionTestsPath=${workspaceFolder}/test/integration/markdown.cjs",
+        "--user-data-dir=${workspaceFolder}/.vscode-test/user",
+        "--extensions-dir=${workspaceFolder}/.vscode-test/extensions",
+        "--profile=Neovim Workbench Test",
+        "--disable-workspace-trust",
+        "--skip-welcome"
+      ]
+    }
+  ]
+}
