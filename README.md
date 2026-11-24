@@ -37,8 +37,12 @@ The extension uses the built-in Markdown renderer and leaves editor association 
 
 ## Development
 
-Run `npm test` with Node.js 22 or later for the module checks. In VS Code's Run and Debug view, use **Run Extension** to try it in an Extension Development Host or **Test Markdown Integration** to test the renderer with isolated settings.
+Run `npm ci` and `npm test` with Node.js 22 or later. In VS Code's Run and Debug view, use **Run Extension** to try it in an Extension Development Host or **Test Markdown Integration** to test the renderer with isolated settings.
 
 The extension host entry point is in `src/extension.js`. The Markdown module keeps configuration, renderer integration, and focus handling in `src/markdown/`. The ES modules in `src/markdown/preview/` run inside the built-in preview. Add new features in their own module and register them in the host entry point as needed.
 
-To build a VSIX locally before a repository URL is set, run `npx @vscode/vsce package --allow-missing-repository` from the repository root. Before publishing, set the publisher and repository fields in `package.json` and add the chosen license.
+Run `npm run package` to build a VSIX locally. When adding npm dependencies, commit both `package.json` and `package-lock.json` so the release workflow uses the same versions.
+
+## Releases
+
+The [publish workflow](.github/workflows/publish.yml) uses Marketplace Trusted Publishing. Update the version in `package.json` and `package-lock.json`, push the release commit, then push a matching tag such as `v0.1.0`. GitHub Actions installs the locked dependencies and tests the extension before publishing to the Marketplace.

@@ -3,7 +3,12 @@
   "displayName": "VS Code Configuration Workbench",
   "description": "Modular, configurable tools for a personal Visual Studio Code setup.",
   "version": "0.1.0",
-  "publisher": "local-tools",
+  "publisher": "RayIci",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/RayIci/vscode-config-workbench.git"
+  },
   "engines": {
     "vscode": "^1.147.0"
   },
@@ -28,7 +33,12 @@
     "virtualWorkspaces": true
   },
   "scripts": {
-    "test": "node --test test/markdown/*.test.*"
+    "test": "node --test \"test/**/*.test.*\"",
+    "package": "vsce package",
+    "publish:marketplace": "vsce publish --oidc"
+  },
+  "devDependencies": {
+    "@vscode/vsce": "4.1.1"
   },
   "contributes": {
     "markdown.markdownItPlugins": true,
