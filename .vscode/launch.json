@@ -21,7 +21,7 @@
         "--extensionTestsPath=${workspaceFolder}/test/integration/markdown.cjs",
         "--user-data-dir=${workspaceFolder}/.vscode-test/user",
         "--extensions-dir=${workspaceFolder}/.vscode-test/extensions",
-        "--profile=Neovim Workbench Test",
+        "--profile=VS Code Configuration Workbench Test",
         "--disable-workspace-trust",
         "--skip-welcome"
       ]

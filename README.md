@@ -1,6 +1,6 @@
-# Neovim Workbench
+# VS Code Configuration Workbench
 
-Configurable Neovim-style workflows for the VS Code desktop app. The first module adds Vim motions and optional keyboard focus to VS Code's built-in Markdown Preview.
+A modular extension for personal configuration and workflows in the VS Code desktop app. The first module adds Vim motions and optional keyboard focus to VS Code's built-in Markdown Preview.
 
 ## Markdown preview
 
@@ -16,22 +16,22 @@ Set options in User Settings JSON for the current VS Code profile. For example:
 
 ```jsonc
 {
-  "neovimWorkbench.markdown.fileExtensions": [".md", ".markdown", ".copilotmd"],
-  "neovimWorkbench.markdown.preview.keyBindings": {
+  "vscodeConfigWorkbench.markdown.fileExtensions": [".md", ".markdown", ".copilotmd"],
+  "vscodeConfigWorkbench.markdown.preview.keyBindings": {
     "scrollDown": ["j", "Ctrl+e"],
     "scrollUp": ["k", "Ctrl+y"],
     "goToTop": ["g g"],
     "goToBottom": ["Shift+g"]
   },
-  "neovimWorkbench.markdown.preview.lineScrollPixels": 40,
-  "neovimWorkbench.markdown.preview.autoFocus": true,
-  "neovimWorkbench.markdown.preview.forwardTabKeys": true
+  "vscodeConfigWorkbench.markdown.preview.lineScrollPixels": 40,
+  "vscodeConfigWorkbench.markdown.preview.autoFocus": true,
+  "vscodeConfigWorkbench.markdown.preview.forwardTabKeys": true
 }
 ```
 
 The `keyBindings` object takes action names as keys and arrays of shortcuts as values. Omitted actions keep their defaults. Set an action to `[]` to unbind it. Use spaces for sequences, modifiers such as `Ctrl+g` and `Shift+g`, and named keys such as `Space`, `ArrowDown`, and `PageUp`. Avoid assigning the same sequence to two actions or binding both a sequence and its prefix.
 
-Other settings include `enabled`, `preview.halfPageFraction`, `preview.sequenceTimeoutMs`, and `preview.focusDelayMs` under the `neovimWorkbench.markdown` namespace. Suffixes are case-insensitive and control which documents receive the motions. The built-in preview determines which documents it can render. Some standalone preview tabs expose no document URI to the extension host, so their automatic focus is governed by the module and focus switches.
+Other settings include `enabled`, `preview.halfPageFraction`, `preview.sequenceTimeoutMs`, and `preview.focusDelayMs` under the `vscodeConfigWorkbench.markdown` namespace. Suffixes are case-insensitive and control which documents receive the motions. The built-in preview determines which documents it can render. Some standalone preview tabs expose no document URI to the extension host, so their automatic focus is governed by the module and focus switches.
 
 The extension uses the built-in Markdown renderer and leaves editor association preferences in the user's settings. In a remote workspace, install the extension wherever VS Code runs its Markdown language features. Settings Sync synchronizes extension installation on desktop once the package is available from the Marketplace. Remote extension installation follows VS Code's remote-workspace rules.
 

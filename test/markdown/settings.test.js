@@ -7,7 +7,7 @@ function readSettings(values, expectedResource) {
   const vscode = {
     workspace: {
       getConfiguration(namespace, resource) {
-        assert.equal(namespace, 'neovimWorkbench.markdown');
+        assert.equal(namespace, 'vscodeConfigWorkbench.markdown');
         assert.equal(resource, expectedResource);
         return { get: (name) => values[name] };
       },
@@ -46,7 +46,7 @@ test('the renderer passes escaped settings to the preview and uses a disabled ma
 
   function renderSettings(path) {
     const html = md.renderer.render([], {}, { currentDocument: { path } });
-    const marker = html.match(/^<template data-neovim-workbench-preview="([a-zA-Z0-9+/=]+)"><\/template><h1>Preview<\/h1>$/);
+    const marker = html.match(/^<template data-vscode-config-workbench-preview="([a-zA-Z0-9+/=]+)"><\/template><h1>Preview<\/h1>$/);
     assert.ok(marker);
     return JSON.parse(Buffer.from(marker[1], 'base64').toString('utf8'));
   }

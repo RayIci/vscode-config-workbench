@@ -1,7 +1,7 @@
 {
-  "name": "neovim-workbench",
-  "displayName": "Neovim Workbench",
-  "description": "A configurable collection of Neovim-style workflows for Visual Studio Code.",
+  "name": "vscode-config-workbench",
+  "displayName": "VS Code Configuration Workbench",
+  "description": "Modular, configurable tools for a personal Visual Studio Code setup.",
   "version": "0.1.0",
   "publisher": "local-tools",
   "engines": {
@@ -11,6 +11,8 @@
     "Other"
   ],
   "keywords": [
+    "configuration",
+    "workflow",
     "neovim",
     "vim",
     "markdown"
@@ -37,15 +39,15 @@
       }
     ],
     "configuration": {
-      "title": "Neovim Workbench",
+      "title": "VS Code Configuration Workbench",
       "properties": {
-        "neovimWorkbench.markdown.enabled": {
+        "vscodeConfigWorkbench.markdown.enabled": {
           "type": "boolean",
           "default": true,
           "scope": "window",
           "description": "Enable the Markdown module."
         },
-        "neovimWorkbench.markdown.fileExtensions": {
+        "vscodeConfigWorkbench.markdown.fileExtensions": {
           "type": "array",
           "items": {
             "type": "string",
@@ -71,7 +73,7 @@
           "scope": "window",
           "description": "Filename suffixes to handle in VS Code’s built-in Markdown preview. An empty list allows any document rendered by that preview."
         },
-        "neovimWorkbench.markdown.preview.keyBindings": {
+        "vscodeConfigWorkbench.markdown.preview.keyBindings": {
           "type": "object",
           "additionalProperties": false,
           "scope": "window",
@@ -153,14 +155,14 @@
             ]
           }
         },
-        "neovimWorkbench.markdown.preview.lineScrollPixels": {
+        "vscodeConfigWorkbench.markdown.preview.lineScrollPixels": {
           "type": "integer",
           "minimum": 1,
           "default": 48,
           "scope": "window",
           "description": "Number of pixels moved by the scroll-up and scroll-down actions."
         },
-        "neovimWorkbench.markdown.preview.halfPageFraction": {
+        "vscodeConfigWorkbench.markdown.preview.halfPageFraction": {
           "type": "number",
           "minimum": 0.01,
           "maximum": 1,
@@ -168,7 +170,7 @@
           "scope": "window",
           "description": "Fraction of the visible height moved by the half-page actions."
         },
-        "neovimWorkbench.markdown.preview.sequenceTimeoutMs": {
+        "vscodeConfigWorkbench.markdown.preview.sequenceTimeoutMs": {
           "type": "integer",
           "minimum": 100,
           "maximum": 5000,
@@ -176,19 +178,19 @@
           "scope": "window",
           "description": "Maximum gap in milliseconds between presses in a key sequence."
         },
-        "neovimWorkbench.markdown.preview.forwardTabKeys": {
+        "vscodeConfigWorkbench.markdown.preview.forwardTabKeys": {
           "type": "boolean",
           "default": false,
           "scope": "window",
           "description": "Let VS Code handle Tab and Shift+Tab by suppressing the preview’s link-focus behavior. Set to false if you use Tab for link navigation or a preview motion."
         },
-        "neovimWorkbench.markdown.preview.autoFocus": {
+        "vscodeConfigWorkbench.markdown.preview.autoFocus": {
           "type": "boolean",
           "default": true,
           "scope": "window",
           "description": "Focus the rendered Markdown preview when its tab is selected."
         },
-        "neovimWorkbench.markdown.preview.focusDelayMs": {
+        "vscodeConfigWorkbench.markdown.preview.focusDelayMs": {
           "type": "integer",
           "minimum": 0,
           "maximum": 2000,

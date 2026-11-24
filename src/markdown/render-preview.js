@@ -15,7 +15,7 @@ function addPreviewConfiguration(markdownIt, readSettings) {
     // Encode configuration as inert metadata. It contains no commands or executable code.
     const preview = handlesResource(settings, resource) ? settings.preview : null;
     const encoded = Buffer.from(JSON.stringify(preview), 'utf8').toString('base64');
-    return `<template data-neovim-workbench-preview="${encoded}"></template>${html}`;
+    return `<template data-vscode-config-workbench-preview="${encoded}"></template>${html}`;
   };
 
   return markdownIt;

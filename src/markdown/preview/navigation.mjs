@@ -1,12 +1,12 @@
 import { createKeyMatcher } from './keys.mjs';
 
 function readPreviewSettings(document) {
-  const marker = document.querySelector('.markdown-body > template[data-neovim-workbench-preview]');
+  const marker = document.querySelector('.markdown-body > template[data-vscode-config-workbench-preview]');
   if (!marker) {
     return null;
   }
   try {
-    const binary = atob(marker.dataset.neovimWorkbenchPreview);
+    const binary = atob(marker.dataset.vscodeConfigWorkbenchPreview);
     return JSON.parse(new TextDecoder().decode(Uint8Array.from(binary, (character) => character.charCodeAt(0))));
   } catch {
     return null;

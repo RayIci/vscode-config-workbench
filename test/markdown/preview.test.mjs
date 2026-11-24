@@ -45,7 +45,7 @@ test('preview honors live settings, editable fields and VS Code tab forwarding',
     scrollingElement: { scrollHeight: 3400 },
     addEventListener: (type, handler) => documentEvents.set(type, handler),
     querySelector: () => ({
-      dataset: { neovimWorkbenchPreview: Buffer.from(JSON.stringify(preview), 'utf8').toString('base64') },
+      dataset: { vscodeConfigWorkbenchPreview: Buffer.from(JSON.stringify(preview), 'utf8').toString('base64') },
     }),
   };
   installPreviewNavigation(window, document);

@@ -1,6 +1,6 @@
 const { contributes } = require('../../package.json');
 
-const namespace = 'neovimWorkbench.markdown';
+const namespace = 'vscodeConfigWorkbench.markdown';
 const settingSchema = contributes.configuration.properties;
 
 function getMarkdownSettings(vscode, resource) {

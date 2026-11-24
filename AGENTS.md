@@ -1,6 +1,6 @@
 # Repository instructions
 
-- Keep this a general-purpose extension for Neovim-style VS Code workflows. Add features as independent modules. Markdown is the first module.
+- Keep this a general-purpose extension for personal VS Code configuration and workflows. Support Neovim-style features alongside other custom tools. Add features as independent modules, with Markdown as the first module.
 - Expose behavior that users may want to change as documented VS Code settings with reasonable defaults. Support Default and named-profile settings. Changing a binding, supported Markdown suffix, or feature option should require only a settings edit.
 - Put bindings handled inside a rendered preview in the extension's settings. Use VS Code's standard keybinding mechanism for workbench commands so users can override them in `keybindings.json`.
 - Keep Markdown editor associations in user or profile settings so they can sync independently of the extension. Preserve users' choices of editor and previewer.
